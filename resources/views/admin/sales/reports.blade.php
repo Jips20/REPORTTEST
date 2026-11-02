@@ -48,7 +48,7 @@
                                     <td>{{$sale->product->purchase->product}}</td>
                                     <td>{{$sale->quantity}}</td>
                                     <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($sale->total_price, 2) }}</td>
-                                    <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($sale->total_cost, 2) }}</td>
+                                    <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->cost_total, 2) }}</td>
                                     <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($sale->profit, 2) }}</td>
                                     <td>{{date_format(date_create($sale->created_at),"d M, Y")}}</td>
                                     <td>{{ optional($sale->seller)->name ?? 'N/A' }}</td>
@@ -71,7 +71,7 @@
                                 <td>{{ optional(optional($row->product)->purchase)->product ?? 'N/A' }}</td>
                                 <td>{{ $row->total_qty }}</td>
                                 <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->total_sales, 2) }}</td>
-                                <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->total_cost, 2) }}</td>
+                                <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->cost_total, 2) }}</td>
                                 <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->total_profit, 2) }}</td>
                                 <td>{{ $row->transactions }}</td>
                             </tr>
@@ -92,7 +92,7 @@
                                 <td>{{ optional($row->seller)->name ?? 'N/A (no seller recorded)' }}</td>
                                 <td>{{ $row->total_qty }}</td>
                                 <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->total_sales, 2) }}</td>
-                                <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->total_cost, 2) }}</td>
+                                <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->cost_total, 2) }}</td>
                                 <td>{{AppSettings::get('app_currency', '$')}} {{ number_format($row->total_profit, 2) }}</td>
                                 <td>{{ $row->transactions }}</td>
                             </tr>

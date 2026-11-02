@@ -289,7 +289,7 @@ class SaleController extends Controller
                 ->select('product_id',
                     DB::raw('SUM(quantity) as total_qty'),
                     DB::raw('SUM(total_price) as total_sales'),
-                    DB::raw('SUM(quantity * unit_cost) as total_cost'),
+                    DB::raw('SUM(quantity * unit_cost) as cost_total'),
                     DB::raw('SUM(total_price - (quantity * unit_cost)) as total_profit'),
                     DB::raw('COUNT(*) as transactions'))
                 ->groupBy('product_id')
@@ -303,7 +303,7 @@ class SaleController extends Controller
                 ->select('user_id',
                     DB::raw('SUM(quantity) as total_qty'),
                     DB::raw('SUM(total_price) as total_sales'),
-                    DB::raw('SUM(quantity * unit_cost) as total_cost'),
+                    DB::raw('SUM(quantity * unit_cost) as cost_total'),
                     DB::raw('SUM(total_price - (quantity * unit_cost)) as total_profit'),
                     DB::raw('COUNT(*) as transactions'))
                 ->groupBy('user_id')
